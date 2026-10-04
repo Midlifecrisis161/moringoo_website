@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moringoo! Cracker - Camilan MPASI Sehat, Bebas Gluten & Tinggi Nutrisi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Nunito & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        moringoo: {
+                            green: '#3F6835',
+                            leaf: '#4A7C59',
+                            lightgreen: '#E8F3E6',
+                            yellow: '#F5B025',
+                            yellowlight: '#FEF3C7',
+                            pink: '#F7B8C4',
+                            pinklight: '#FFF0EF',
+                            cream: '#F4EFE0',
+                            beige: '#FBF9F1',
+                            dark: '#1C2919'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Quicksand', 'sans-serif']
+                    },
+                    borderRadius: {
+                        '3xl': '1.75rem',
+                        '4xl': '2.25rem',
+                        '5xl': '2.75rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #FBF9F1;
+            color: #2C3E50;
+        }
+        .bg-dots {
+            background-image: radial-gradient(#3F6835 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+            opacity: 0.12;
+        }
+        .custom-shadow {
+            box-shadow: 0 20px 40px -15px rgba(63, 104, 53, 0.15);
+        }
+        .pouch-pulse {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+    </style>
+</head>
+<body class="bg-moringoo-beige text-slate-800 antialiased overflow-x-hidden selection:bg-moringoo-yellow selection:text-moringoo-dark">
+
+    <!-- Top Announcement Bar -->
+    <div id="promoBar" class="bg-moringoo-green text-white text-xs sm:text-sm font-bold py-2.5 px-4 text-center relative z-50 flex items-center justify-center gap-2 shadow-sm">
+        <span class="bg-moringoo-yellow text-moringoo-dark px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider">PROMO LAUNCHING</span>
+        <span>🎉 Gratis Ongkir + Diskon 15% untuk Pembelian Paket Bundle Hemat!</span>
+        <a href="#produk" class="underline hover:text-moringoo-yellow font-black ml-1">Klaim Promo &rarr;</a>
+    </div>
+
+    <!-- Main Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-moringoo-cream/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="https://lh3.googleusercontent.com/d/114BILhR8hRwP7iINmvbdozd3SqRi7a2W" 
+                     alt="Logo Moringoo! Cracker" 
+                     class="w-12 h-12 rounded-full border-2 border-moringoo-green object-cover shadow-sm group-hover:scale-105 transition-transform">
+                <div>
+                    <span class="font-display font-black text-2xl text-moringoo-green tracking-tight leading-none block">MORINGOO!</span>
+                    <span class="text-[10px] font-extrabold text-moringoo-yellow uppercase tracking-widest block">Cracker MPASI Sehat</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-bold text-sm text-slate-700">
+                <a href="#beranda" class="hover:text-moringoo-green transition-colors">Beranda</a>
+                <a href="#keunggulan" class="hover:text-moringoo-green transition-colors">Keunggulan</a>
+                <a href="#pouch-inspector" class="hover:text-moringoo-green transition-colors">Kemasan</a>
+                <a href="#kalkulator" class="hover:text-moringoo-green transition-colors">Kalkulator Gizi</a>
+                <a href="#produk" class="hover:text-moringoo-green transition-colors">Produk & Paket</a>
+                <a href="#kuis" class="hover:text-moringoo-green transition-colors">Kuis Si Kecil</a>
+                <a href="#testimoni" class="hover:text-moringoo-green transition-colors">Ulasan</a>
+            </nav>
+
+            <!-- Action Buttons & Cart Toggle -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCartDrawer()" class="relative bg-moringoo-cream hover:bg-moringoo-yellowlight text-moringoo-dark font-extrabold p-3 rounded-full transition-all flex items-center justify-center">
+                    <i class="fa-solid fa-cart-shopping text-lg text-moringoo-green"></i>
+                    <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-red-500 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+                </button>
+                
+                <a href="#produk" class="hidden sm:flex bg-moringoo-green hover:bg-moringoo-dark text-white font-extrabold px-6 py-2.5 rounded-full text-sm shadow-md hover:shadow-lg transition-all items-center gap-2 transform hover:-translate-y-0.5">
+                    <span>Beli Sekarang</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+
+                <!-- Mobile menu toggle button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-700 hover:text-moringoo-green" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Dropdown Nav -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-moringoo-cream px-6 py-4 space-y-3 font-bold text-center">
+            <a href="#beranda" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Beranda</a>
+            <a href="#keunggulan" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Keunggulan</a>
+            <a href="#pouch-inspector" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Inspeksi Kemasan</a>
+            <a href="#kalkulator" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Kalkulator Gizi</a>
+            <a href="#produk" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Produk & Paket</a>
+            <a href="#kuis" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Kuis Kesiapan MPASI</a>
+            <a href="#testimoni" onclick="closeMobileMenu()" class="block py-2 text-slate-700 hover:text-moringoo-green">Ulasan & Rating</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-8 pb-20 md:pt-16 md:pb-28 overflow-hidden">
+        <div class="absolute inset-0 bg-dots pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                        <span class="bg-moringoo-green text-white font-black text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-baby"></i> Usia 8+ Bulan
+                        </span>
+                        <span class="bg-moringoo-yellowlight text-amber-900 border border-moringoo-yellow/40 font-black text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-wheat-awn-circle-exclamation"></i> 100% Bebas Gluten
+                        </span>
+                        <span class="bg-emerald-100 text-emerald-800 font-black text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-shield-halal"></i> Halal ID & PIRT
+                        </span>
+                    </div>
+
+                    <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-slate-900 leading-tight">
+                        Camilan MPASI Sehat <span class="text-moringoo-green underline decoration-moringoo-yellow decoration-4 underline-offset-4">Superfood Kelor</span> & Pisang
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Cracker <em>finger food</em> renyah berbasis pangan lokal murni (Daun Kelor & Pisang Cavendish Sragen). Meleleh di mulut (<em>melt-in-mouth</em>), bebas gula & garam tambahan, serta melatih motorik halus si kecil secara aman!
+                    </p>
+
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#produk" class="w-full sm:w-auto bg-moringoo-green hover:bg-moringoo-dark text-white font-black text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-center transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>Pesan Paket Hemat</span>
+                        </a>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Moringoo!%20Saya%20mau%20konsultasi%20mengenai%20camilan%20MPASI%20anak" target="_blank" class="w-full sm:w-auto bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-2 border-emerald-300 font-bold text-base px-6 py-3.5 rounded-full text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+                            <span>Konsultasi WA Gratis</span>
+                        </a>
+                    </div>
+
+                    <!-- Key highlights badges -->
+                    <div class="pt-6 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-extrabold text-slate-600">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-moringoo-green text-base"></i>
+                            <span>Cegah Stunting</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-moringoo-green text-base"></i>
+                            <span>Tanpa Pengawet</span>
+                        </div>
+                        <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
+                            <i class="fa-solid fa-circle-check text-moringoo-green text-base"></i>
+                            <span>Petani Solo Raya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column Interactive Pouch Display -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="relative w-full max-w-md">
+                        <!-- Glowing backdrop gradient -->
+                        <div class="absolute -top-8 -left-8 w-72 h-72 bg-moringoo-yellow/30 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -bottom-8 -right-8 w-72 h-72 bg-moringoo-green/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <!-- Card Pouch Container -->
+                        <div class="bg-white p-6 sm:p-8 rounded-4xl custom-shadow border-4 border-white relative z-10 text-center pouch-pulse">
+                            
+                            <!-- Pouch Badge -->
+                            <div class="absolute top-4 right-4 bg-moringoo-yellow text-moringoo-dark font-black text-xs px-3.5 py-1 rounded-full shadow-sm flex items-center gap-1 z-20">
+                                <i class="fa-solid fa-fire text-red-500"></i> Best Seller
+                            </div>
+
+                            <!-- Packaging Image Display -->
+                            <div class="w-full mx-auto relative flex items-center justify-center p-2">
+                                <img src="https://lh3.googleusercontent.com/d/1lZZe9inAWrx2wvb0CMKmjwwKcKMpQZyw" 
+                                     alt="Kemasan Moringoo! Cracker Rasa Pisang" 
+                                     class="w-full h-auto drop-shadow-xl rounded-2xl border border-moringoo-green/20">
+                            </div>
+
+                            <div class="mt-4 space-y-1">
+                                <h3 class="font-display font-black text-xl text-slate-800">Moringoo! Cracker MPASI</h3>
+                                <p class="text-xs text-slate-500 font-bold">Varian Rasa: Pisang Cavendish Sragen 🍌</p>
+                            </div>
+
+                            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                                <div class="text-left">
+                                    <span class="text-slate-400 block font-bold">Harga Promo</span>
+                                    <span class="text-lg font-black text-moringoo-green">Rp 22.000</span>
+                                </div>
+                                <button onclick="quickAddToCart('Moringoo! Cracker Pisang 60g', 22000)" class="bg-moringoo-green hover:bg-moringoo-dark text-white font-extrabold px-4 py-2 rounded-full text-xs shadow transition-transform transform active:scale-95 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-plus"></i> Tambah Ke Keranjang
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="keunggulan" class="py-16 md:py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="bg-moringoo-lightgreen text-moringoo-green font-black text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">6 Pilar Kebaikan Moringoo!</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">Mengapa Moringoo! Pilihan Terbaik Ibu Cerdas?</h2>
+                <p class="text-slate-600 font-semibold text-base">Setiap keping dirancang khusus untuk memenuhi standar keamanan pangan bayi & kebutuhan gizi masa pertumbuhan.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-moringoo-beige p-8 rounded-3xl border border-moringoo-cream hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-moringoo-green text-white rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-md">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h3 class="font-display font-black text-xl text-slate-800 mb-3">Tinggi Nutrisi Kelor</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                            Ekstrak daun kelor (*moringa oleifera*) pilihan kaya Zat Besi (Fe) dan Kalsium alami untuk membantu mencegah resiko anemia & stunting sejak usia dini.
+                        </p>
+                    </div>
+                    <span class="mt-6 text-xs font-black text-moringoo-green flex items-center gap-1">15% AKG Zat Besi per Sajian</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-moringoo-beige p-8 rounded-3xl border border-moringoo-cream hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-moringoo-yellow text-moringoo-dark rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-md">
+                            <i class="fa-solid fa-wheat-awn"></i>
+                        </div>
+                        <h3 class="font-display font-black text-xl text-slate-800 mb-3">100% Bebas Gluten</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                            Menggunakan perpaduan tepung pati ganyong lokal & tepung beras merah Boyolali. Sangat aman bagi bayi dengan usus sensitif atau alergi gandum.
+                        </p>
+                    </div>
+                    <span class="mt-6 text-xs font-black text-amber-700 flex items-center gap-1">Ramah Pencernaan Bayi</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-moringoo-beige p-8 rounded-3xl border border-moringoo-cream hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-md">
+                            <i class="fa-solid fa-ban font-bold"></i>
+                        </div>
+                        <h3 class="font-display font-black text-xl text-slate-800 mb-3">Tanpa Gula & Garam</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                            Manis harum alami didapatkan murni dari Pisang Cavendish matang pohon serta gurih alami dari mentega tawar (*unsalted butter*).
+                        </p>
+                    </div>
+                    <span class="mt-6 text-xs font-black text-emerald-800 flex items-center gap-1">0g Added Sugar</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-moringoo-beige p-8 rounded-3xl border border-moringoo-cream hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-moringoo-pink text-slate-800 rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-md">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="font-display font-black text-xl text-slate-800 mb-3">Tekstur Lumer di Mulut</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                            Formula *melt-in-mouth* melatih bayi menggenggam makanan (*finger food*) tanpa risiko tersedak karena kepingan melunak cepat saat terkena air liur.
+                        </p>
+                    </div>
+                    <span class="mt-6 text-xs font-black text-rose-700 flex items-center gap-1">Stimulasi Motorik Halus</span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-moringoo-beige p-8 rounded-3xl border border-moringoo-cream hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-teal-600 text-white rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-md">
+                            <i class="fa-solid fa-shield-halal"></i>
+                        </div>
+                        <h3 class="font-display font-black text-xl text-slate-800 mb-3">Sertifikasi & Keamanan</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                            Telah memiliki sertifikat Halal Indonesia resmi & ijin edar PIRT/BPOM. Diproduksi di fasilitas higienis berstandar GMP.
+                        </p>
+                    </div>
+                    <span class="mt-6 text-xs font-black text-teal-800 flex items-center gap-1">Teruji Laboratorium</span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-moringoo-beige p-8 rounded-3xl border border-moringoo-cream hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-600 text-white rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-md">
+                            <i class="fa-solid fa-hands-holding-circle"></i>
+                        </div>
+                        <h3 class="font-display font-black text-xl text-slate-800 mb-3">Pemberdayaan Lokal</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                            Bahan baku dipasok langsung dari kelompok petani lokal kelor dan ganyong di wilayah Solo Raya & Boyolali untuk mendukung kemandirian pangan nasional.
+                        </p>
+                    </div>
+                    <span class="mt-6 text-xs font-black text-amber-900 flex items-center gap-1">Dukung Petani Indonesia</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Pouch Visual Inspector -->
+    <section id="pouch-inspector" class="py-16 md:py-24 bg-moringoo-cream/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="bg-moringoo-green text-white font-black text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">Interactive Feature</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">Jelajahi Fitur Kemasan Moringoo!</h2>
+                <p class="text-slate-600 font-semibold text-sm sm:text-base">Klik atau ketuk titik interaktif pada kemasan di bawah ini untuk melihat keunggulannya:</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Pouch Viewer Column -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="relative w-full max-w-sm bg-white p-6 rounded-4xl border-4 border-moringoo-green/20 shadow-xl">
+                        
+                        <!-- Hotspot 1: Zipper -->
+                        <button onclick="inspectFeature('zipper')" class="absolute top-10 left-1/2 -translate-x-1/2 bg-moringoo-yellow text-slate-900 font-black text-xs px-3 py-1.5 rounded-full shadow-lg border-2 border-white hover:scale-110 transition-transform flex items-center gap-1 z-20">
+                            <i class="fa-solid fa-lock"></i> Zipper Lock
+                        </button>
+
+                        <!-- Hotspot 2: Mascot -->
+                        <button onclick="inspectFeature('mascot')" class="absolute bottom-28 left-8 bg-moringoo-green text-white font-black text-xs px-3 py-1.5 rounded-full shadow-lg border-2 border-white hover:scale-110 transition-transform flex items-center gap-1 z-20">
+                            <i class="fa-solid fa-cat"></i> Mascot Kucing
+                        </button>
+
+                        <!-- Hotspot 3: Window -->
+                        <button onclick="inspectFeature('window')" class="absolute top-1/2 right-4 -translate-y-1/2 bg-emerald-600 text-white font-black text-xs px-3 py-1.5 rounded-full shadow-lg border-2 border-white hover:scale-110 transition-transform flex items-center gap-1 z-20">
+                            <i class="fa-solid fa-eye"></i> Jendela Transparan
+                        </button>
+
+                        <!-- Hotspot 4: Halal Footer -->
+                        <button onclick="inspectFeature('halal')" class="absolute bottom-6 right-8 bg-purple-700 text-white font-black text-xs px-3 py-1.5 rounded-full shadow-lg border-2 border-white hover:scale-110 transition-transform flex items-center gap-1 z-20">
+                            <i class="fa-solid fa-check-double"></i> Halal & Netto
+                        </button>
+
+                        <!-- Pouch Render Image -->
+                        <div class="py-6">
+                            <img src="https://lh3.googleusercontent.com/d/1lZZe9inAWrx2wvb0CMKmjwwKcKMpQZyw" 
+                                 alt="Kemasan Moringoo! Cracker Rasa Pisang" 
+                                 class="w-full h-auto drop-shadow-xl rounded-2xl border border-moringoo-green/20">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Dynamic Detail Panel -->
+                <div class="lg:col-span-6">
+                    <div id="inspectorDetailPanel" class="bg-white p-8 rounded-4xl custom-shadow border-2 border-moringoo-green/20 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div id="inspectorIcon" class="w-12 h-12 bg-moringoo-yellow text-slate-900 rounded-2xl flex items-center justify-center text-xl font-black">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <div>
+                                <h3 id="inspectorTitle" class="font-display font-black text-2xl text-slate-800">Sealed Zipper Lock</h3>
+                                <span id="inspectorSubtitle" class="text-xs font-bold text-moringoo-green uppercase tracking-wider">Kedap Udara & Higienis</span>
+                            </div>
+                        </div>
+                        <p id="inspectorBody" class="text-slate-600 text-sm font-semibold leading-relaxed">
+                            Dilengkapi dengan *double zipper lock* kedap udara standar *food grade*. Mencegah kelembapan masuk sehingga kepingan cracker tetap renyah tanpa perlu bahan pengawet kimia.
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-black text-moringoo-green">
+                            <i class="fa-solid fa-circle-check text-moringoo-yellow"></i>
+                            <span>Klik hotspot pada gambar untuk membaca detail bagian lainnya.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive MPASI & Nutrition Calculator -->
+    <section id="kalkulator" class="py-16 md:py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <span class="bg-moringoo-yellowlight text-amber-900 border border-moringoo-yellow/40 font-black text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">Kalkulator Cerdas Ibu</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">Hitung Kebutuhan Camilan MPASI Si Kecil</h2>
+                <p class="text-slate-600 font-semibold text-sm sm:text-base">Masukkan usia dan frekuensi makan si kecil untuk menghitung estimasi kecukupan Zat Besi & stok bulanan.</p>
+            </div>
+
+            <div class="bg-moringoo-beige p-6 sm:p-10 rounded-4xl border-2 border-moringoo-cream shadow-lg max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    
+                    <!-- Controls Form -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Usia Bayi Saat Ini:</label>
+                            <select id="babyAgeSelect" onchange="calculateNutrition()" class="w-full bg-white border-2 border-moringoo-cream rounded-2xl p-3.5 text-sm font-extrabold text-slate-800 focus:outline-none focus:border-moringoo-green">
+                                <option value="8">8 - 10 Bulan (Awal Finger Food)</option>
+                                <option value="11">11 - 12 Bulan (Eksplorasi Tekstur)</option>
+                                <option value="13">12 - 24 Bulan (Balita Active Snacking)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Frekuensi Camilan per Hari:</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" onclick="setSnackFreq(1)" id="freqBtn1" class="freq-btn bg-moringoo-green text-white font-extrabold p-3 rounded-2xl text-xs text-center border-2 border-moringoo-green">1x Sehari</button>
+                                <button type="button" onclick="setSnackFreq(2)" id="freqBtn2" class="freq-btn bg-white text-slate-700 font-extrabold p-3 rounded-2xl text-xs text-center border-2 border-moringoo-cream">2x Sehari</button>
+                                <button type="button" onclick="setSnackFreq(3)" id="freqBtn3" class="freq-btn bg-white text-slate-700 font-extrabold p-3 rounded-2xl text-xs text-center border-2 border-moringoo-cream">3x Sehari</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-moringoo-cream space-y-2">
+                            <span class="text-xs font-black text-slate-500 uppercase">Pilihan Varian Favorit:</span>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-lemon text-moringoo-yellow text-lg"></i>
+                                <span class="text-sm font-bold text-slate-800">Moringoo! Rasa Pisang Cavendish</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculated Results Display -->
+                    <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl space-y-5 relative overflow-hidden">
+                        <div class="border-b border-slate-800 pb-3 flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-moringoo-yellow uppercase tracking-widest">Hasil Analisis Gizi</span>
+                            <i class="fa-solid fa-calculator text-slate-400"></i>
+                        </div>
+
+                        <div class="space-y-4 text-xs sm:text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400 font-semibold">Porsi Sajian Harian:</span>
+                                <span id="resDailyPieces" class="text-base font-black text-white">4 - 5 Keping</span>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400 font-semibold">Asupan Zat Besi (Fe):</span>
+                                <span id="resIronAkg" class="text-base font-black text-moringoo-yellow">15% AKG Bayi</span>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400 font-semibold">Kebutuhan Stok Bulanan:</span>
+                                <span id="resPouchNeeded" class="text-base font-black text-emerald-400">3 Pouch / Bulan</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800 space-y-3">
+                            <div class="flex items-center justify-between text-xs font-bold text-slate-300">
+                                <span>Rekomendasi Paket Hemat:</span>
+                                <span class="text-moringoo-yellow">Hemat Rp 7.000</span>
+                            </div>
+                            <button onclick="quickAddToCart('Paket Hemat 3 Pouch', 59000)" class="w-full bg-moringoo-yellow hover:bg-amber-400 text-slate-900 font-black py-3 rounded-full text-xs shadow-md transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <span>Pesan Paket Hemat (3 Pouch - Rp 59.000)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Products & Bundle Order Section -->
+    <section id="produk" class="py-16 md:py-24 bg-moringoo-cream/30 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="bg-moringoo-green text-white font-black text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">Katalog & Paket Hemat</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">Pilih Paket Camilan MPASI Bayi</h2>
+                <p class="text-slate-600 font-semibold text-base">Jaminan produk 100% segar langsung dari rumah produksi higienis kami.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch mb-12">
+                
+                <!-- Package 1: Single Trial Pouch -->
+                <div class="bg-white p-8 rounded-4xl border-2 border-moringoo-cream hover:border-moringoo-green transition-all shadow-md hover:shadow-xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-slate-100 text-slate-700 font-black text-xs px-3 py-1 rounded-full">Paket Coba-Coba</span>
+                            <span class="text-xs text-slate-400 font-bold">Netto: 60g</span>
+                        </div>
+                        <div class="w-28 h-28 mx-auto my-2 flex items-center justify-center bg-moringoo-beige rounded-2xl">
+                            <i class="fa-solid fa-box text-4xl text-moringoo-green"></i>
+                        </div>
+                        <h3 class="font-display font-black text-2xl text-slate-800 text-center">1 Pouch Trial</h3>
+                        <p class="text-slate-500 text-xs font-semibold text-center">Ideal untuk perkenalan pertama tekstur finger food pada bayi.</p>
+                        
+                        <div class="text-center py-2">
+                            <span class="text-3xl font-black text-slate-900">Rp 22.000</span>
+                            <span class="text-xs text-slate-400 block font-semibold mt-0.5">~Rp 4.400 / sajian</span>
+                        </div>
+
+                        <ul class="space-y-2 text-xs text-slate-600 font-bold border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-moringoo-green"></i> 1 Pouch Moringoo! Rasa Pisang 60g</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-moringoo-green"></i> Free Insert Card Panduan MPASI</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="quickAddToCart('1 Pouch Moringoo Trial 60g', 22000)" class="w-full mt-6 bg-moringoo-beige hover:bg-moringoo-green hover:text-white text-slate-800 font-black py-3.5 rounded-full transition-colors text-sm">
+                        + Tambah Ke Keranjang
+                    </button>
+                </div>
+
+                <!-- Package 2: 3 Pouch Bundle (BEST SELLER) -->
+                <div class="bg-white p-8 rounded-4xl border-4 border-moringoo-green shadow-xl flex flex-col justify-between relative transform md:-translate-y-3">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-moringoo-yellow text-moringoo-dark font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
+                        🔥 Best Seller (Paling Laris)
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-moringoo-lightgreen text-moringoo-green font-black text-xs px-3 py-1 rounded-full">Hemat Rp 7.000</span>
+                            <span class="text-xs text-moringoo-green font-extrabold">3 Pouch (180g)</span>
+                        </div>
+                        <div class="w-28 h-28 mx-auto my-2 flex items-center justify-center bg-moringoo-yellowlight rounded-2xl">
+                            <i class="fa-solid fa-boxes-packing text-4xl text-moringoo-dark"></i>
+                        </div>
+                        <h3 class="font-display font-black text-2xl text-slate-800 text-center">Paket Hemat 3 Pouch</h3>
+                        <p class="text-slate-500 text-xs font-semibold text-center">Stok cukup untuk 2-3 minggu camilan harian sehat si kecil.</p>
+                        
+                        <div class="text-center py-2">
+                            <div class="flex items-baseline justify-center gap-2">
+                                <span class="text-3xl font-black text-moringoo-green">Rp 59.000</span>
+                                <span class="text-xs text-slate-400 line-through font-bold">Rp 66.000</span>
+                            </div>
+                            <span class="text-xs text-moringoo-green font-black block mt-0.5">Jatuhnya Rp 19.600 / pouch</span>
+                        </div>
+
+                        <ul class="space-y-2 text-xs text-slate-700 font-extrabold border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-moringoo-green"></i> 3 Pouch Moringoo! Rasa Pisang (180g)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-moringoo-green"></i> Bonus E-Book Resep MPASI Sehat</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-moringoo-green"></i> Akses VIP Komunitas WhatsApp</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="quickAddToCart('Paket Hemat 3 Pouch', 59000)" class="w-full mt-6 bg-moringoo-green hover:bg-moringoo-dark text-white font-black py-4 rounded-full shadow-lg transition-colors text-sm">
+                        + Beli Paket Terlaris Ini
+                    </button>
+                </div>
+
+                <!-- Package 3: Monthly Subscription Box -->
+                <div class="bg-white p-8 rounded-4xl border-2 border-moringoo-cream hover:border-moringoo-green transition-all shadow-md hover:shadow-xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-purple-100 text-purple-800 font-black text-xs px-3 py-1 rounded-full">Stok Bulanan Bebas Ribet</span>
+                            <span class="text-xs text-slate-400 font-bold">10 Pouch</span>
+                        </div>
+                        <div class="w-28 h-28 mx-auto my-2 flex items-center justify-center bg-purple-50 rounded-2xl">
+                            <i class="fa-solid fa-truck-ramp-box text-4xl text-purple-700"></i>
+                        </div>
+                        <h3 class="font-display font-black text-2xl text-slate-800 text-center">Paket Rutin Bulanan</h3>
+                        <p class="text-slate-500 text-xs font-semibold text-center">Solusi lengkap pasokan camilan gizi tinggi sepanjang bulan.</p>
+                        
+                        <div class="text-center py-2">
+                            <div class="flex items-baseline justify-center gap-2">
+                                <span class="text-3xl font-black text-slate-900">Rp 199.000</span>
+                                <span class="text-xs text-slate-400 line-through font-bold">Rp 220.000</span>
+                            </div>
+                            <span class="text-xs text-emerald-600 font-black block mt-0.5">Gratis Ongkir Seluruh Jawa</span>
+                        </div>
+
+                        <ul class="space-y-2 text-xs text-slate-600 font-bold border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-moringoo-green"></i> 10 Pouch Moringoo! Cracker (600g)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-moringoo-green"></i> Bebas Biaya Pengiriman</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-moringoo-green"></i> Sesi Tanya Jawab Ahli Gizi</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="quickAddToCart('Paket Rutin Bulanan (10 Pouch)', 199000)" class="w-full mt-6 bg-moringoo-beige hover:bg-moringoo-green hover:text-white text-slate-800 font-black py-3.5 rounded-full transition-colors text-sm">
+                        + Tambah Ke Keranjang
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive MPASI Readiness Quiz -->
+    <section id="kuis" class="py-16 md:py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-gradient-to-br from-moringoo-green to-moringoo-dark text-white rounded-4xl p-8 sm:p-12 custom-shadow relative overflow-hidden">
+                <div class="space-y-4 text-center max-w-2xl mx-auto">
+                    <span class="bg-moringoo-yellow text-slate-900 font-black text-xs uppercase tracking-widest px-3.5 py-1 rounded-full">Interactive Quiz</span>
+                    <h2 class="font-display font-black text-2xl sm:text-3xl">Apakah Si Kecil Sudah Siap Finger Food?</h2>
+                    <p class="text-xs sm:text-sm text-moringoo-lightgreen font-semibold">Jawab 3 pertanyaan singkat di bawah ini untuk mengetahui kesiapan sensorik & motorik si kecil!</p>
+                </div>
+
+                <div id="quizContainer" class="mt-8 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 text-white space-y-6">
+                    <!-- Question 1 -->
+                    <div id="q1" class="quiz-step space-y-3">
+                        <p class="font-extrabold text-sm sm:text-base">1. Apakah bayi Anda sudah berusia minimal 8 bulan dan bisa duduk dengan tegak tanpa bantuan?</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="answerQuiz(1, true)" class="flex-1 bg-white text-slate-900 hover:bg-moringoo-yellow font-black py-3 px-4 rounded-xl text-xs transition-colors">Ya, Sudah Bisa</button>
+                            <button onclick="answerQuiz(1, false)" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition-colors">Belum Masih Perlu Disangga</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div id="q2" class="quiz-step hidden space-y-3">
+                        <p class="font-extrabold text-sm sm:text-base">2. Apakah si kecil mulai menunjukkan ketertarikan meraih makanan di piring orang tua dengan ibu jari & telunjuk (*pincer grasp*)?</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="answerQuiz(2, true)" class="flex-1 bg-white text-slate-900 hover:bg-moringoo-yellow font-black py-3 px-4 rounded-xl text-xs transition-colors">Ya, Sangat Suka Meraih</button>
+                            <button onclick="answerQuiz(2, false)" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition-colors">Belum Terlalu Aktif</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div id="q3" class="quiz-step hidden space-y-3">
+                        <p class="font-extrabold text-sm sm:text-base">3. Apakah refleks memuntahkan makanan (*tongue-thrust reflex*) bayi sudah berkurang?</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="answerQuiz(3, true)" class="flex-1 bg-white text-slate-900 hover:bg-moringoo-yellow font-black py-3 px-4 rounded-xl text-xs transition-colors">Ya, Sudah Berkurang</button>
+                            <button onclick="answerQuiz(3, false)" class="flex-1 bg-white/20 hover:bg-white/30 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition-colors">Masih Sering Memuntahkan</button>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div id="quizResult" class="hidden text-center space-y-4">
+                        <div class="w-16 h-16 bg-moringoo-yellow text-slate-900 rounded-full flex items-center justify-center text-3xl font-black mx-auto">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h3 id="quizTitle" class="font-display font-black text-2xl text-moringoo-yellow">Si Kecil Sangat Siap!</h3>
+                        <p id="quizDesc" class="text-xs sm:text-sm font-semibold text-slate-100 leading-relaxed max-w-lg mx-auto">
+                            Si kecil berada di fase keemasan untuk melatih stimulasi motorik dengan Moringoo! Cracker. Tekstur *melt-in-mouth* membantu melatih stimulasi tanpa khawatir tersedak.
+                        </p>
+                        <button onclick="resetQuiz()" class="bg-white text-slate-900 hover:bg-moringoo-yellow font-black px-6 py-2.5 rounded-full text-xs transition-colors">
+                            Ulangi Kuis
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials & Real-time Review Section -->
+    <section id="testimoni" class="py-16 md:py-24 bg-moringoo-beige/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <div class="flex items-center justify-center gap-1 text-moringoo-yellow text-xl">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">Kata Para Ibu & Pakar Gizi</h2>
+                <p class="text-slate-600 font-semibold text-sm sm:text-base">Ulasan jujur dari ribuan orang tua yang telah mencoba Moringoo! Cracker.</p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div id="reviewsGrid" class="grid md:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-moringoo-cream shadow-sm flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-1 text-moringoo-yellow text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-xs sm:text-sm font-semibold italic leading-relaxed">
+                            "Anakku usia 9 bulan lahap banget! Paling suka karena bentuknya pas di genggaman mungilnya dan lumer di mulut. Jadi tenang nggak takut tersedak."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-moringoo-pink text-slate-800 rounded-full flex items-center justify-center font-black text-sm">M</div>
+                        <div>
+                            <h4 class="font-black text-slate-800 text-sm">Mama Arfan (9 Bln)</h4>
+                            <span class="text-xs text-slate-400 font-bold">Surakarta, Jawa Tengah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-moringoo-lightgreen p-6 sm:p-8 rounded-3xl border border-moringoo-green/20 shadow-sm flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="bg-moringoo-green text-white font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase">Rekomendasi Ahli Gizi</span>
+                        <p class="text-slate-800 text-xs sm:text-sm font-semibold italic leading-relaxed">
+                            "Formulasi berbasis pangan lokal kelor dan ganyong sangat bagus untuk mencegah anemia pada bayi. Bebas gula dan garam tambahan sangat ideal untuk pola makan sehat usia dini."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-moringoo-green/20 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-moringoo-green text-white rounded-full flex items-center justify-center font-black text-sm">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-900 text-sm">Siti Rahma, S.Gz</h4>
+                            <span class="text-xs text-slate-600 font-bold">Dietitian / Konsultan Gizi Anak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-moringoo-cream shadow-sm flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-1 text-moringoo-yellow text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-xs sm:text-sm font-semibold italic leading-relaxed">
+                            "Praktis banget buat dibawa travelling! Zipper lock-nya kenceng jadi kepingan biskuinya nggak melempem walau disimpan seminggu."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-moringoo-yellow text-moringoo-dark rounded-full flex items-center justify-center font-black text-sm">I</div>
+                        <div>
+                            <h4 class="font-black text-slate-800 text-sm">Ibu Dian & Rayyan</h4>
+                            <span class="text-xs text-slate-400 font-bold">Semarang</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Submit Review Action Button -->
+            <div class="text-center">
+                <button onclick="openReviewModal()" class="bg-white hover:bg-moringoo-cream text-moringoo-green border-2 border-moringoo-green font-black px-6 py-3 rounded-full text-xs shadow transition-all">
+                    <i class="fa-solid fa-pen"></i> Tulis Ulasan Pengalaman Anda
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-3 mb-12">
+                <span class="bg-moringoo-lightgreen text-moringoo-green font-black text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">Pertanyaan Umum</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900">FAQ Moringoo! Cracker</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-moringoo-beige rounded-2xl border border-moringoo-cream overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left font-extrabold text-slate-800 flex justify-between items-center text-sm sm:text-base">
+                        <span>Apakah Moringoo! aman untuk bayi yang baru mulai MPASI (6 bulan)?</span>
+                        <i id="faqIcon1" class="fa-solid fa-chevron-down text-moringoo-green transition-transform"></i>
+                    </button>
+                    <div id="faqAns1" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed border-t border-moringoo-cream/60 pt-3">
+                        Moringoo! Cracker direkomendasikan untuk bayi usia <strong>8 bulan ke atas</strong> saat struktur pencernaan dan stimulasi mengunyah/menggenggam (*finger food*) sudah lebih matang.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-moringoo-beige rounded-2xl border border-moringoo-cream overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left font-extrabold text-slate-800 flex justify-between items-center text-sm sm:text-base">
+                        <span>Berapa lama daya tahan simpan produk?</span>
+                        <i id="faqIcon2" class="fa-solid fa-chevron-down text-moringoo-green transition-transform"></i>
+                    </button>
+                    <div id="faqAns2" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed border-t border-moringoo-cream/60 pt-3">
+                        Masa simpan segel kedap udara mencapai <strong>12 bulan</strong>. Setelah kemasan dibuka, disarankan dikonsumsi habis dalam waktu 1–2 minggu dan selalu menutup rapat *zipper lock*-nya.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-moringoo-beige rounded-2xl border border-moringoo-cream overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left font-extrabold text-slate-800 flex justify-between items-center text-sm sm:text-base">
+                        <span>Apakah mengandung gula pasir atau garam sintetis?</span>
+                        <i id="faqIcon3" class="fa-solid fa-chevron-down text-moringoo-green transition-transform"></i>
+                    </button>
+                    <div id="faqAns3" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed border-t border-moringoo-cream/60 pt-3">
+                        Sama sekali <strong>0g gula pasir dan 0g garam buatan</strong>. Manis harum alami berasal murni dari Pisang Cavendish Sragen matang pohon.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-12 border-t-4 border-moringoo-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/d/114BILhR8hRwP7iINmvbdozd3SqRi7a2W" 
+                             alt="Logo Moringoo! Cracker" 
+                             class="w-10 h-10 rounded-full border-2 border-moringoo-green object-cover shadow-sm">
+                        <span class="font-display font-black text-2xl tracking-tight text-white">MORINGOO!</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 font-semibold leading-relaxed max-w-sm">
+                        Cracker Finger Food MPASI Berbahan Pangan Lokal Tinggi Nutrisi & Bebas Gluten. Pencegah Stunting & Anemia Sejak Dini untuk Generasi Indonesia Sehat.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-black text-sm text-moringoo-yellow uppercase tracking-wider">Navigasi Halaman</h4>
+                    <ul class="space-y-2 text-xs font-extrabold text-slate-400">
+                        <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#keunggulan" class="hover:text-white transition-colors">Keunggulan Nutrisi</a></li>
+                        <li><a href="#pouch-inspector" class="hover:text-white transition-colors">Inspeksi Kemasan</a></li>
+                        <li><a href="#kalkulator" class="hover:text-white transition-colors">Kalkulator Gizi</a></li>
+                        <li><a href="#produk" class="hover:text-white transition-colors">Paket Order</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="font-black text-sm text-moringoo-yellow uppercase tracking-wider">Sertifikasi & Kemitraan</h4>
+                    <p class="text-xs text-slate-400 font-semibold">Tersedia di Shopee, Tokopedia, TikTok Shop, serta Supermarket Lokal Solo Raya.</p>
+                    <div class="pt-2 flex flex-wrap gap-2 text-xs font-black text-slate-300">
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">✓ Halal ID</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">✓ PIRT Certified</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500">
+                <p>&copy; 2026 Moringoo! Cracker Indonesia. All Rights Reserved.</p>
+                <p>Memberdayakan Petani Kelor & Pisang Solo Raya 🍃</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Slide-out Drawer -->
+    <div id="cartDrawerOverlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    
+    <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-moringoo-green text-xl"></i>
+                <h3 class="font-display font-black text-xl text-slate-800">Keranjang Belanja</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 text-slate-400 hover:text-slate-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List Container -->
+        <div id="cartItemsContainer" class="p-6 overflow-y-auto flex-1 space-y-4">
+            <div id="emptyCartMsg" class="text-center py-12 space-y-3">
+                <i class="fa-solid fa-basket-shopping text-5xl text-slate-300"></i>
+                <p class="text-slate-500 font-bold text-sm">Keranjang belanja Anda masih kosong.</p>
+            </div>
+        </div>
+
+        <!-- Cart Footer Summary -->
+        <div class="p-6 border-t border-slate-100 bg-moringoo-beige/50 space-y-4">
+            <div class="flex justify-between items-center font-black text-slate-800 text-sm">
+                <span>Total Estimasi:</span>
+                <span id="cartTotalPrice" class="text-xl text-moringoo-green">Rp 0</span>
+            </div>
+
+            <button onclick="proceedToCheckout()" class="w-full bg-moringoo-green hover:bg-moringoo-dark text-white font-black py-4 rounded-full text-sm shadow-lg transition-colors flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Lanjutkan Pesanan (WhatsApp / Marketplace)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-4xl max-w-md w-full p-6 sm:p-8 space-y-4 shadow-2xl relative">
+            <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="font-display font-black text-2xl text-slate-800">Tulis Ulasan Anda</h3>
+            
+            <form onsubmit="submitReview(event)" class="space-y-4 text-xs font-bold">
+                <div>
+                    <label class="block mb-1 text-slate-700">Nama Lengkap / Panggilan Ibu:</label>
+                    <input id="revName" type="text" required placeholder="Contoh: Mama Keisha" class="w-full p-3 bg-moringoo-beige rounded-xl border border-moringoo-cream focus:outline-none focus:border-moringoo-green">
+                </div>
+                <div>
+                    <label class="block mb-1 text-slate-700">Kota / Lokasi:</label>
+                    <input id="revCity" type="text" required placeholder="Contoh: Solo Raya" class="w-full p-3 bg-moringoo-beige rounded-xl border border-moringoo-cream focus:outline-none focus:border-moringoo-green">
+                </div>
+                <div>
+                    <label class="block mb-1 text-slate-700">Ulasan Pengalaman:</label>
+                    <textarea id="revText" rows="3" required placeholder="Ceritakan bagaimana si kecil menikmati Moringoo! Cracker..." class="w-full p-3 bg-moringoo-beige rounded-xl border border-moringoo-cream focus:outline-none focus:border-moringoo-green"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-moringoo-green hover:bg-moringoo-dark text-white font-black py-3.5 rounded-full text-sm shadow">
+                    Kirim Ulasan
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let currentSnackFreq = 1;
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        const inspectorData = {
+            zipper: {
+                icon: 'fa-lock',
+                title: 'Sealed Zipper Lock',
+                subtitle: 'Kedap Udara & Higienis',
+                body: 'Dilengkapi dengan double zipper lock kedap udara standar food grade. Mencegah kelembapan masuk sehingga kepingan cracker tetap renyah tanpa perlu bahan pengawet kimia.'
+            },
+            mascot: {
+                icon: 'fa-cat',
+                title: 'Karakter Mascot Kucing',
+                subtitle: 'Daya Tarik Visual Anak',
+                body: 'Desain karakter lucu yang disukai anak-anak untuk membangun asosiasi positif dengan waktu makan MPASI yang menyenangkan.'
+            },
+            window: {
+                icon: 'fa-eye',
+                title: 'Jendela Transparan Bening',
+                subtitle: 'Jaminan Kualitas Produk',
+                body: 'Jendela transparan berbentuk daun kelor untuk melihat langsung kebersihan dan keutuhan kepingan cracker Moringoo! di dalam kemasan.'
+            },
+            halal: {
+                icon: 'fa-check-double',
+                title: 'Sertifikasi Halal & Netto 60g',
+                subtitle: 'Standar Mutu Terjamin',
+                body: 'Mencantumkan tanggal kadaluarsa, nomor registrasi izin PIRT/Halal Indonesia, serta berat bersih 60 gram (sekitar 25-30 keping biskuit).'
+            }
+        };
+
+        function inspectFeature(key) {
+            const data = inspectorData[key];
+            if (!data) return;
+            document.getElementById('inspectorIcon').innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+            document.getElementById('inspectorTitle').innerText = data.title;
+            document.getElementById('inspectorSubtitle').innerText = data.subtitle;
+            document.getElementById('inspectorBody').innerText = data.body;
+        }
+
+        function setSnackFreq(freq) {
+            currentSnackFreq = freq;
+            document.querySelectorAll('.freq-btn').forEach((btn, idx) => {
+                if (idx + 1 === freq) {
+                    btn.classList.add('bg-moringoo-green', 'text-white');
+                    btn.classList.remove('bg-white', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-moringoo-green', 'text-white');
+                    btn.classList.add('bg-white', 'text-slate-700');
+                }
+            });
+            calculateNutrition();
+        }
+
+        function calculateNutrition() {
+            const age = parseInt(document.getElementById('babyAgeSelect').value);
+            let pieces = '4 - 5 Keping';
+            let iron = '15% AKG';
+            let pouches = '3 Pouch / Bulan';
+
+            if (currentSnackFreq === 1) {
+                pieces = '4 - 5 Keping';
+                iron = '15% AKG';
+                pouches = '2 - 3 Pouch / Bulan';
+            } else if (currentSnackFreq === 2) {
+                pieces = '8 - 10 Keping';
+                iron = '30% AKG';
+                pouches = '4 - 5 Pouch / Bulan';
+            } else {
+                pieces = '12 - 15 Keping';
+                iron = '45% AKG';
+                pouches = '6 Pouch / Bulan';
+            }
+
+            document.getElementById('resDailyPieces').innerText = pieces;
+            document.getElementById('resIronAkg').innerText = iron;
+            document.getElementById('resPouchNeeded').innerText = pouches;
+        }
+
+        let quizAnswers = {};
+
+        function answerQuiz(step, answer) {
+            quizAnswers[step] = answer;
+            document.getElementById(`q${step}`).classList.add('hidden');
+
+            if (step < 3) {
+                document.getElementById(`q${step + 1}`).classList.remove('hidden');
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quizResult').classList.remove('hidden');
+            const yesCount = Object.values(quizAnswers).filter(Boolean).length;
+
+            if (yesCount >= 2) {
+                document.getElementById('quizTitle').innerText = 'Si Kecil Sangat Siap Finger Food!';
+                document.getElementById('quizDesc').innerText = 'Bayi Anda menunjukkan tanda-tanda perkembangan motorik & lisan yang matang untuk mencoba Moringoo! Cracker.';
+            } else {
+                document.getElementById('quizTitle').innerText = 'Dampingi Bertahap Ya Bu!';
+                document.getElementById('quizDesc').innerText = 'Mulai perkenalkan dalam porsi kecil sambil terus mendampingi latihan duduk tegak si kecil.';
+            }
+        }
+
+        function resetQuiz() {
+            quizAnswers = {};
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q2').classList.add('hidden');
+            document.getElementById('q3').classList.add('hidden');
+        }
+
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faqAns${id}`);
+            const icon = document.getElementById(`faqIcon${id}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                ans.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartDrawerOverlay');
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function quickAddToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const emptyMsg = document.getElementById('emptyCartMsg');
+            const badge = document.getElementById('cartCountBadge');
+            const totalEl = document.getElementById('cartTotalPrice');
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                emptyMsg.classList.remove('hidden');
+                container.innerHTML = '';
+                container.appendChild(emptyMsg);
+            } else {
+                emptyMsg.classList.add('hidden');
+                container.innerHTML = '';
+
+                cart.forEach((item, index) => {
+                    totalQty += item.qty;
+                    totalPrice += item.price * item.qty;
+
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'bg-moringoo-beige p-4 rounded-2xl border border-moringoo-cream flex items-center justify-between text-xs font-extrabold';
+                    itemEl.innerHTML = `
+                        <div>
+                            <h4 class="text-slate-800 font-black">${item.name}</h4>
+                            <span class="text-moringoo-green block mt-0.5">Rp ${(item.price * item.qty).toLocaleString('id-ID')}</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-xl border border-slate-200">
+                            <button onclick="changeCartQty(${index}, -1)" class="w-5 h-5 text-slate-500 font-black">-</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeCartQty(${index}, 1)" class="w-5 h-5 text-moringoo-green font-black">+</button>
+                        </div>
+                    `;
+                    container.appendChild(itemEl);
+                });
+            }
+
+            badge.innerText = totalQty;
+            totalEl.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+
+        function changeCartQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert("Keranjang Anda masih kosong. Silakan pilih paket terlebih dahulu!");
+                return;
+            }
+
+            let msg = "Halo Admin Moringoo! Saya ingin memesan:\n";
+            cart.forEach(item => {
+                msg += `- ${item.name} (${item.qty}x)\n`;
+            });
+            msg += "\nMohon info ongkir dan petunjuk pembayarannya ya Bu, terima kasih!";
+
+            const encoded = encodeURIComponent(msg);
+            window.open(`https://wa.me/6281234567890?text=${encoded}`, '_blank');
+        }
+
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.remove('hidden');
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+        }
+
+        function submitReview(e) {
+            e.preventDefault();
+            const name = document.getElementById('revName').value;
+            const city = document.getElementById('revCity').value;
+            const text = document.getElementById('revText').value;
+
+            const grid = document.getElementById('reviewsGrid');
+            const card = document.createElement('div');
+            card.className = 'bg-white p-6 sm:p-8 rounded-3xl border border-moringoo-cream shadow-sm flex flex-col justify-between';
+            card.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex items-center gap-1 text-moringoo-yellow text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 text-xs sm:text-sm font-semibold italic leading-relaxed">"${text}"</p>
+                </div>
+                <div class="pt-6 border-t border-slate-100 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-moringoo-green text-white rounded-full flex items-center justify-center font-black text-sm">${name.charAt(0)}</div>
+                    <div>
+                        <h4 class="font-black text-slate-800 text-sm">${name}</h4>
+                        <span class="text-xs text-slate-400 font-bold">${city}</span>
+                    </div>
+                </div>
+            `;
+
+            grid.prepend(card);
+            closeReviewModal();
+            document.getElementById('revName').value = '';
+            document.getElementById('revCity').value = '';
+            document.getElementById('revText').value = '';
+        }
+    </script>
+</body>
+</html>
